@@ -1,0 +1,27 @@
+//arduino with monitor on wikwi//
+//using://
+//https://github.com/olikraus/u8g2/wiki/u8g2reference//
+
+#include <Arduino.h>
+#include <U8g2lib.h>
+#include <Wire.h>
+
+U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0); // set the OLED display to 128x64px, HW IIC, no rotation, used in WOKWI
+
+void setup() {
+  // put your setup code here, to run once:
+  u8g2.begin();
+  u8g2.setContrast(255);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  u8g2.firstPage();
+  do
+  {
+    u8g2.setDrawColor(1);    // set color to white
+    u8g2.drawPixel(64, 32);  //draw single pixel in the center of the monitor
+
+  } while ( u8g2.nextPage() );
+
+}
